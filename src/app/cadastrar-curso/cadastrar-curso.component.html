@@ -1,0 +1,28 @@
+<form #cadastro="ngForm">
+    <label for=titulo>Titulo</label>
+    <input type="text" id="titulo" name="titulo" [(ngModel)] ="titulo"><br>
+    <label for=descricao>Descricao</label>
+    <input type="text" id="descricao" name="descricao"  [(ngModel)] = "descricao"><br>
+    <select id="categoria" name="categoria" [(ngModel)]="categoria"  required>
+        <option *ngFor = "let cat of list_cat"
+        [value]="cat.id" >{{cat.categoria}}</option>
+    </select>
+
+    <select id="professor" name="professor" [(ngModel)]="professor"  required>
+        <option *ngFor = "let prof of list_prof"
+        [value]="prof.id" >{{prof.nome}}</option>
+    </select>
+    <button (click)="adicionar_prof()">Adicionar</button>
+
+    <ul *ngFor = "let pro of professores">
+        <li>{{pro.nome}}</li>
+    </ul>
+
+    <button (click)="salvar()">Salvar</button>
+
+    <ul *ngFor = "let curso of list_curso">
+        <li>{{curso.id}} - {{ curso.titulo }} - {{ curso.descricao}} - {{ curso.categoria.categoria}}
+            - {{curso.professor[0].nome}}
+        </li>
+    </ul>
+</form>
