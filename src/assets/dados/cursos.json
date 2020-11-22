@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "titulo": "Testado",
+        "categoria":{
+            "id":1,
+            "categoria":"Esporte"
+        },
+        "descricao": "Teste",
+        "professor":[
+            {
+                "id":1,
+                "nome":"Fabio"
+            }    
+        ],
+        "aula":[
+            {
+            "id":1,
+            "titulo":"exercicio 1",
+            "tempo": "1h 20min",
+            "exercicio": {"id":1, "exercicio":"faça isso..."}
+            }
+        ]
+    }
+]

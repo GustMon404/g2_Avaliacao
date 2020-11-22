@@ -8,11 +8,15 @@ import { CadastrarCursoComponent } from './cadastrar-curso/cadastrar-curso.compo
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CursoService } from './curso.service';
+import { AulasComponent } from './aulas/aulas.component';
+import { DetalheCursoComponent } from './detalhe-curso/detalhe-curso.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastrarCursoComponent,
+    AulasComponent,
+    DetalheCursoComponent,
   ],
   imports: [
     BrowserModule,

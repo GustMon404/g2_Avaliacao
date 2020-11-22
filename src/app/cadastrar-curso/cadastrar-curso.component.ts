@@ -20,7 +20,9 @@ export class CadastrarCursoComponent implements OnInit {
   list_prof = [];
 
   constructor(private cursoService: CursoService) {
-    this.list_curso = cursoService.todas();
+    this.cursoService.carregarCursos(
+      () => this.list_curso = this.cursoService.todas()
+    );
     this.list_cat = cursoService.todas_categorias();
     this.list_prof = cursoService.todos_professores();
    }
@@ -30,7 +32,6 @@ export class CadastrarCursoComponent implements OnInit {
   
   adicionar_prof(){
     let prof = this.cursoService.buscar_professor(this.professor)
-    console.log(prof)
     this.professores.push(prof);
     this.professor = 1;
   }
@@ -45,5 +46,7 @@ export class CadastrarCursoComponent implements OnInit {
     this.professores = []
   }
 
-  teste(){}
+  delete(){
+    
+  }
 }

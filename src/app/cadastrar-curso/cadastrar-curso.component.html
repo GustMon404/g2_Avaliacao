@@ -19,10 +19,11 @@
     </ul>
 
     <button (click)="salvar()">Salvar</button>
+    <button (click)="salvar()">Salvar</button>
 
-    <ul *ngFor = "let curso of list_curso">
-        <li>{{curso.id}} - {{ curso.titulo }} - {{ curso.descricao}} - {{ curso.categoria.categoria}}
-            - {{curso.professor[0].nome}}
-        </li>
-    </ul>
+    <app-aulas
+    [cursos]="list_curso"
+    >
+
+    </app-aulas>
 </form>

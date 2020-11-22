@@ -1,0 +1,16 @@
+<ul *ngFor = "let curso of cursos">
+    <li><a routerLink = '/curso/aulas/{{curso.id}}'>{{curso.id}} - {{ curso.titulo }} - {{ curso.descricao}} - {{ curso.categoria.categoria}}
+        - {{curso.professor[0].nome}}</a>
+        <ul *ngFor = "let aula of curso.aula">
+            <li>
+                {{aula.titulo}} - {{aula.tempo}}
+            </li>
+        </ul>
+    </li>
+    <label for=aula_titulo>Titulo: </label>
+    <input type="text" id="aula_titulo" name="aula_titulo" [(ngModel)] ="aula_titulo"><br>
+    <label for=aula_tempo>Tempo: </label>
+    <input type="text" id="aula_tempo" name="aula_tempo" [(ngModel)] ="aula_tempo"><br>
+
+    <button (click)="salvar_aula(curso)">Adicionar Aula</button>
+</ul>

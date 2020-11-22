@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Categoria, Curso, Professor } from 'src/app.model';
+import { HttpClient } from '@angular/common/http'
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class CursoService {
 
 
 
-  constructor() {
+  constructor(private http:HttpClient) {
     this.list_curso = [];
     this.categorias = [];
     this.professores = []
@@ -51,7 +53,10 @@ export class CursoService {
     const curso = new Curso(this.novoId_curso,cat,
        titulo, descricao,professores)
 
+      console.log(curso)
+
     this.list_curso.push(curso)
+    //this.http.post('./assets/dados/cursos.json', curso)
     this.novoId_curso++
   }
 
@@ -65,5 +70,17 @@ export class CursoService {
     let prof = null;
     prof = this.professores.filter(prof => prof.id == id)
     return prof[0]
+  }
+
+  carregarCursos(callback){
+    this.http.get('./assets/dados/cursos.json')
+    .subscribe(cursos => this.list_curso = cursos)
+    .add(callback)
+    }
+  
+  buscar_curso(id:number){
+    let curso = null;
+    curso = this.list_curso.filter(curso => curso.id == id)
+    return curso[0]
   }
 }

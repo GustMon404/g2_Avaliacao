@@ -24,29 +24,38 @@ export class Curso{
     titulo: string;
     descricao: string;
     professor: Array<Professor>
-    constructor(id: number,categoria: Categoria, titulo: string,descricao: string, professor: Array<Professor>){
+    aula: Array<Aula>
+
+    constructor(id: number,categoria: Categoria, titulo: string,descricao: string, professor: Array<Professor>, aula?: Array<Aula>){
         this.id= id;
         this.categoria = categoria;
         this.titulo = titulo;
         this.descricao = descricao;
         this.professor = professor;
+        this.aula = aula;
     }
 }
 
 export class Aula{
     id: number;
-    id_curso: number;
     titulo: string;
     tempo: string;
-    exercicio: string;
-    curso: Curso;
+    exercicio: Exercicio;
 
-    constructor(id: number, id_curso: number, titulo: string, tempo: string, exercicio: string, curso: Curso){
+    constructor(id: number, titulo: string, tempo: string, exercicio?: Exercicio){
         this.id = id;
-        this.id_curso = id_curso;
         this.titulo = titulo;
         this.tempo = tempo;
         this.exercicio = exercicio;
-        this.curso = curso
+    }
+}
+
+export class Exercicio{
+    id: number;
+    exercicio: string;
+
+    constructor(id:number, exercicio:string){
+        this.id = id;
+        this.exercicio = exercicio;
     }
 }
